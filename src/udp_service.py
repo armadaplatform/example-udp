@@ -1,27 +1,19 @@
-import json
-import os
+import socket
 
-import web
+# A UDP server
 
+# Set up a UDP server
+UDPSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
-class Health(object):
-    def GET(self):
-        return 'ok'
+# Listen on port 21567
+# (to all IP addresses on this system)
+listen_addr = ("", 200)
+UDPSock.bind(listen_addr)
 
-
-class Env(object):
-    def GET(self):
-        return json.dumps(dict(os.environ), sort_keys=True, indent=4)
-
-
-def main():
-    urls = (
-        '/health', Health.__name__,
-        '/', Env.__name__,
-    )
-    app = web.application(urls, globals())
-    app.run()
-
-
-if __name__ == '__main__':
-    main()
+# Report on all data packets received and
+# where they came from in each case (as this is
+# UDP, each may be from a different source and it's
+# up to the server to sort this out!)
+while True:
+    data, addr = UDPSock.recvfrom(1024)
+    print(data.strip(), addr)

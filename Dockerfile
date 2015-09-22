@@ -1,10 +1,8 @@
 FROM microservice
 MAINTAINER Cerebro <cerebro@ganymede.eu>
 
-RUN apt-get install -y python-yaml
-
-ADD . /opt/example-multi
-ADD ./supervisor/*.conf /etc/supervisor/conf.d/
+ADD . /opt/example-udp
+ADD ./supervisor/* /etc/supervisor/conf.d/
 
 EXPOSE 80
-EXPOSE 81
+EXPOSE 200/udp
