@@ -1,6 +1,5 @@
+import json
 import os
-
-import yaml
 
 import web
 
@@ -12,7 +11,7 @@ class Health(object):
 
 class Env(object):
     def GET(self):
-        return yaml.dump(dict(os.environ), default_flow_style=False)
+        return json.dumps(dict(os.environ), sort_keys=True, indent=4)
 
 
 def main():
