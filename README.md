@@ -58,3 +58,15 @@ As you can see it's the port of the UDP server.
 Now you can configure your magellan to point `http://example-udp.initech.com` to `example-udp:address` and use it from anywhere. 
 
 You can read more about setting up address adapter here: https://github.com/armadaplatform/example-multi
+
+# Registering UDP service in Armada catalog.
+
+There is a slight difference in registering UDP service from TCP.
+
+You have to expose the port in [Dockerfile](Dockerfile) using `EXPOSE 200/udp`.
+
+And register it using similar [supervisor config](supervisor/address_adapter.conf):
+
+    [program:register_udp_echo_server]
+    directory=/opt/microservice/src
+    command=python register_in_service_discovery.py 200/udp
