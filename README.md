@@ -44,7 +44,7 @@ You can play with the UDP server using nc/netcat:
 
 The easiest way to access the UDP server from other Armada services would be to use `require_service` (See: http://armada.sh/docs/armada_features/service_discovery/),
 If you wanted to use it from non-armada service, or from outside of the private network, the best solution would be magellan + main-haproxy duo.
-Unfortunately, since this UDP server is not an HTTP server, you cannot use it.
+Unfortunately, since this is UDP server, and not an HTTP server, you cannot use it.
 
 However, you cas use the address adapter (running on HTTP) for acquiring the real UDP port.
 
