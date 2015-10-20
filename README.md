@@ -50,8 +50,10 @@ However, you cas use the address adapter (running on HTTP) for acquiring the rea
 
 Example with curl:
 
-    curl 192.168.3.65:32788
+    $curl 192.168.3.65:32788
     192.168.3.65:32777
+
+As you can see it's the port of the UDP server.
 
 Now you can configure your magellan to point `http://example-udp.initech.com` to `example-udp:address` and use it from anywhere. 
 
