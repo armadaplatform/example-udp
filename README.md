@@ -69,7 +69,7 @@ There is a slight difference in registering UDP service from TCP.
 Let's assume the UDP server is running on port 200, as this one is.
 You have to expose this port in [Dockerfile](Dockerfile) using `EXPOSE 200/udp`.
 
-And register it using similar [supervisor config](supervisor/address_adapter.conf):
+And register it using similar [supervisor config](supervisor/udp_echo_server.conf):
 
     [program:register_udp_echo_server]
     directory=/opt/microservice/src
