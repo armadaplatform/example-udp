@@ -42,7 +42,7 @@ You can play with the UDP server using nc/netcat:
 
 # Accessing the service.
 
-The easiest way to access the UDP server from other Armada services would be to use `require_service` ([http://armada.sh/docs/armada_features/service_discovery/]),
+The easiest way to access the UDP server from other Armada services would be to use `require_service` (See: http://armada.sh/docs/armada_features/service_discovery/),
 If you wanted to use it from non-armada service, or from outside of the private network, the best solution would be magellan + main-haproxy duo.
 Unfortunately, since this UDP server is not an HTTP server, you cannot use it.
 
@@ -55,4 +55,4 @@ Example with curl:
 
 Now you can configure your magellan to point `http://example-udp.initech.com` to `example-udp:address` and use it from anywhere. 
 
-You can read more about setting up address adapter here: [https://github.com/armadaplatform/example-multi]
+You can read more about setting up address adapter here: https://github.com/armadaplatform/example-multi
